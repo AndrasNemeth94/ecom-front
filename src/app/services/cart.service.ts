@@ -8,8 +8,8 @@ import { Order } from '../models/order';
   providedIn: 'root',
 })
 export class CartService {
-  private postProdUrl = 'http://localhost:3000/api/order';
-  private postToken = 'http://localhost:3000/api/userData';
+  private postProdUrl = 'https://stockangel.herokuapp.com/api/order';
+  private postToken = 'https://stockangel.herokuapp.com/api/userData';
   public prodToCart = new Array<OrderedProduct>();
   constructor(private _http: HttpClient, private _router: Router) {}
 

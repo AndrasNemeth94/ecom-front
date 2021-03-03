@@ -7,10 +7,10 @@ import { Product } from '../models/product';
   providedIn: 'root',
 })
 export class ProductService {
-  public productUrl = 'http://localhost:3000/api/homeProd';
-  public shoeUrl = 'http://localhost:3000/api/shoes';
-  public tshirtUrl = 'http://localhost:3000/api/tshirts';
-  public sweaterUrl = 'http://localhost:3000/api/sweaters';
+  public productUrl = 'https://stockangel.herokuapp.com/api/homeProd';
+  public shoeUrl = 'https://stockangel.herokuapp.com/api/shoes';
+  public tshirtUrl = 'https://stockangel.herokuapp.com/api/tshirts';
+  public sweaterUrl = 'https://stockangel.herokuapp.com/api/sweaters';
   constructor(private _http: HttpClient, private _router: Router) {}
   public inspectedProd!: Product;
   getProducts() {

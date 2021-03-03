@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class LoginserviceService {
-  private _urlLogin = 'http://localhost:3000/api/login';
-  private _urlProfile = 'http://localhost:3000/api/profile';
-  private _urlSignup = 'http://localhost:3000/api/signup';
-  private _urlDataChange = 'http://localhost:3000/api/datachange';
+  private _urlLogin = 'https://stockangel.herokuapp.com/api/login';
+  private _urlProfile = 'https://stockangel.herokuapp.com/api/profile';
+  private _urlSignup = 'https://stockangel.herokuapp.com/api/signup';
+  private _urlDataChange = 'https://stockangel.herokuapp.com/api/datachange';
   constructor(public _http: HttpClient, private _router: Router) {}
 
   signUp(user: userSignUp) {
