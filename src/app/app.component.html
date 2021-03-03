@@ -1,0 +1,9 @@
+<app-nav (displayStatus)="getDisplayStatus($event)"></app-nav>
+
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+<app-sidedrawer *ngIf="display"></app-sidedrawer>
+<app-shadow
+  *ngIf="display"
+  (closeSidedrawer)="getCloseDrawer($event)"
+></app-shadow>

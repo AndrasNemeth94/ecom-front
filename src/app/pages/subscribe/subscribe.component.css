@@ -1,0 +1,66 @@
+.subscribe-container {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+  min-height: 80vh;
+}
+form {
+  display: flex;
+  height: fit-content;
+  width: fit-content;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 5%;
+  padding: 30px;
+  font-family: "Javanese Text";
+  background-color: rgb(102, 102, 102);
+}
+h1 {
+  display: block;
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  color: white;
+}
+.form-group {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+label {
+  color: white;
+  font-size: 20px;
+}
+small {
+  color: crimson;
+  font-size: 25px;
+}
+button {
+  width: 100px;
+  height: 50px;
+  margin: auto;
+}
+
+@media (max-width: 800px) {
+  form {
+    width: 80%;
+    border-radius: 5%;
+    padding: none;
+  }
+  .form-group {
+    width: 100%;
+  }
+  small {
+    font-size: 15px;
+  }
+  input {
+    height: 30px;
+  }
+  button {
+    width: 80px;
+    height: 30px;
+  }
+}

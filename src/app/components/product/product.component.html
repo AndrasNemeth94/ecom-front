@@ -1,0 +1,28 @@
+<div class="product-container">
+  <div class="sticker" *ngIf="item.newProd || item.forSale">
+    <div class="sticker-img" *ngIf="item.forSale">
+      <img class="prod-sticker" src="../../../assets/img/Stickers/sale.png" />
+    </div>
+    <div class="sticker-img" *ngIf="item.newProd">
+      <img class="prod-sticker" src="../../../assets/img/Stickers/new.png" />
+    </div>
+  </div>
+
+  <div class="product-img">
+    <div *ngIf="item.type == 'shoe'">
+      <img src="{{ imgShoeUrl + item.imgUrl }}" />
+    </div>
+    <div *ngIf="item.type == 'tshirt'">
+      <img src="{{ imgShirtUrl + item.imgUrl }}" />
+    </div>
+    <div *ngIf="item.type == 'sweater'">
+      <img src="{{ imgSweaterUrl + item.imgUrl }}" />
+    </div>
+  </div>
+  <p>{{ item.name }}</p>
+  <div class="buttonline">
+    <button class="btn btn-secondary" (click)="navToProductDetails()">
+      Inspect
+    </button>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="product-detail-container">
+  <div class="product-detail-head">
+    <div class="product-pic" *ngIf="showProduct.type == 'shoe'">
+      <img src="{{ imgShoeUrl + showProduct.imgUrl }}" />
+    </div>
+    <div class="product-pic" *ngIf="showProduct.type == 'sweater'">
+      <img src="{{ imgSweaterUrl + showProduct.imgUrl }}" />
+    </div>
+    <div class="product-pic" *ngIf="showProduct.type == 'tshirt'">
+      <img src="{{ imgShirtUrl + showProduct.imgUrl }}" />
+    </div>
+    <div class="product-description">
+      <h2>{{ showProduct.brandName }}</h2>
+      <br />
+      <h1>{{ showProduct.name }}</h1>
+      <p>{{ showProduct.description }}</p>
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="product-detail-data">
+    <div class="detail-price">
+      <p>price: {{ showProduct.price }} $</p>
+    </div>
+    <form #productForm="ngForm">
+      <div class="detail-size">
+        <label for="size">size:</label>
+        <div class="select-box">
+          <select
+            #sizeSelection
+            type="text"
+            (change)="getIndex(sizeSelection.value, amountSelection.value)"
+            name="size"
+            [(ngModel)]="orderedProdModel.size"
+            required
+            #size="ngModel"
+          >
+            <option *ngFor="let i of showProduct.size">
+              {{ i }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="detail-amount">
+        <label for="amount">amount:</label>
+        <input
+          #amountSelection
+          type="number"
+          min="1"
+          value="1"
+          name="amount"
+          max="{{ this.maxAmount }}"
+          [class.is-invalid]="!(amount.value > 0) && amount.touched"
+          [(ngModel)]="orderedProdModel.amount"
+          required
+          #amount="ngModel"
+        />
+        <p>stock:{{ this.maxAmount }}</p>
+      </div>
+      <small [class.d-none]="amount.untouched || amount.valid">
+        Amount should be between 1 and stock!
+      </small>
+      <button
+        class="btn btn-secondary"
+        type="submit"
+        [disabled]="
+          !productForm.valid ||
+          !(amount.value > 0) ||
+          amount.value > this.maxAmount
+        "
+        (click)="addToCart()"
+      >
+        Add
+      </button>
+    </form>
+  </div>
+  <h2 class="message" *ngIf="itemAdded">Item has been added to cart!</h2>
+  <div class="separator"></div>
+</div>

@@ -1,0 +1,130 @@
+<div class="profile-container">
+  <div class="row-profile">
+    <div class="profile-img"></div>
+    <div class="row-name">
+      <p class="prof-name">{{ userDetails.firstName }}</p>
+      <p class="prof-name">{{ userDetails.lastName }}</p>
+    </div>
+  </div>
+  <div class="row-details">
+    <h1>User Info</h1>
+    <label class="check">
+      <input
+        id="emailcheck"
+        type="checkbox"
+        name="emailcheck"
+        value="false"
+        (change)="disableForm()"
+      />
+    </label>
+    <form #profileDetails="ngForm">
+      <div class="form-group">
+        <label for="firstName">firstName</label>
+        <input
+          type="text"
+          class="form-control"
+          [class.is-invalid]="firstName.invalid && firstName.touched"
+          pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$"
+          name="firstName"
+          [(ngModel)]="profileDetail.firstName"
+          required
+          #firstName="ngModel"
+          [disabled]="isDisabled"
+        />
+        <small [class.d-none]="firstName.untouched || firstName.valid"
+          >firstName is too short!</small
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">lastName</label>
+        <input
+          type="text"
+          class="form-control"
+          [class.is-invalid]="lastName.invalid && lastName.touched"
+          pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$"
+          name="lastName"
+          [(ngModel)]="profileDetail.lastName"
+          required
+          #lastName="ngModel"
+          [disabled]="isDisabled"
+        />
+        <small [class.d-none]="lastName.untouched || lastName.valid"
+          >lastName is too short!</small
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="address">address</label>
+        <input
+          type="text"
+          class="form-control"
+          [class.is-invalid]="address.invalid && address.touched"
+          name="address"
+          [(ngModel)]="profileDetail.address"
+          required
+          #address="ngModel"
+          [disabled]="isDisabled"
+        />
+        <small
+          >example: building number -street name - city -state- ZIP code</small
+        ><br />
+        <small [class.d-none]="address.untouched || address.valid"
+          >address is too short!</small
+        >
+      </div>
+
+      <button
+        class="btn btn-secondary"
+        [disabled]="isDisabled ? true : false"
+        (click)="sendChange()"
+      >
+        Change
+      </button>
+    </form>
+  </div>
+  <div class="row-details">
+    <h1 class="order-dropdown" (click)="showOrders()">Orders</h1>
+    <div class="order-container">
+      <div class="item-data" *ngFor="let i of orders; index as ind">
+        <div class="order-card" *ngIf="cardDisplay">
+          <h2>Order {{ ind + 1 }}</h2>
+          <div class="order-prodlist" *ngFor="let o of i.prodList">
+            <p>name: {{ o.brandName }}</p>
+
+            <p>brand: {{ o.name }}</p>
+            <p>type: {{ o.type }}</p>
+
+            <p>size: {{ o.size }}</p>
+
+            <p>amount: {{ o.amount }}</p>
+
+            <p>price: {{ o.price }} $</p>
+          </div>
+          <br />
+          <h3 style="text-decoration: underline">Order details:</h3>
+          <br />
+          <p>payment: {{ i.payment }}</p>
+          <br />
+          <p>delivery type: {{ i.deliveryType }}</p>
+          <br />
+          <p>note: "{{ i.note }}"</p>
+          <br />
+          <p>total price: {{ i.totalPrice }} $</p>
+          <br />
+          <p>time of order: {{ i.orderTime }}</p>
+          <br />
+          <div class="delivery-status-false" *ngIf="!i.isDelivered">
+            <small style="color: red">status : not delivered</small>
+          </div>
+          <div class="delivery-status-true" *ngIf="i.isDelivered">
+            <small style="color: green">status : delivered</small>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-secondary" (click)="login_service.logout()">
+        Logout
+      </button>
+    </div>
+  </div>
+</div>

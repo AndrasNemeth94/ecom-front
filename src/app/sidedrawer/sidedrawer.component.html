@@ -1,0 +1,14 @@
+<div class="menu-container">
+  <a class="links" routerLink="/about">About</a>
+  <div id="dropdown-container" class="links">
+    <button id="drop-btn" (click)="showButton()">Categories</button>
+    <div class="dropdown-content" *ngIf="display">
+      <li><a class="categ-item" routerLink="/shoes">shoes</a></li>
+      <li><a class="categ-item" routerLink="/tshirts">tshirts</a></li>
+      <li><a class="categ-item" routerLink="/sweaters">sweaters</a></li>
+    </div>
+  </div>
+  <a class="links" routerLink="/cart">Cart</a>
+  <a class="links" *ngIf="!_login.loggedIn()" routerLink="/login">Log in</a>
+  <a class="links" *ngIf="_login.loggedIn()" routerLink="/profile">Profile</a>
+</div>

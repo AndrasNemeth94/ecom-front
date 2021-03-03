@@ -1,0 +1,117 @@
+.nav-container {
+  display: flex;
+  width: 100%;
+  height: 14vh;
+  background-color: rgb(102, 102, 102);
+}
+.home-link {
+  flex-grow: 1;
+  margin-left: 10px;
+  background-color: inherit;
+  background-image: url("../../../assets/img/logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.home-link:hover {
+  opacity: 0.7;
+}
+.collapse-menu {
+  flex-grow: 6;
+  display: flex;
+  padding-left: 10vw;
+  flex-wrap: wrap;
+  position: relative;
+  width: 50%;
+  height: inherit;
+  background-color: inherit;
+}
+.hamburger-menu {
+  display: none;
+  position: relative;
+  width: 50px;
+  height: 80%;
+  margin-top: 1vw;
+  border: none;
+  background-color: inherit;
+  background-image: url("../../../assets/img/burger.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.links {
+  flex-grow: 1;
+  align-self: flex-end;
+  text-decoration: none;
+  font-family: "Javanese Text";
+  font-size: 25px;
+  color: white;
+  background-color: inherit;
+}
+.links:hover {
+  color: rgb(40, 40, 40);
+}
+#to-profile {
+  height: 100px;
+  width: 100px;
+  margin: auto;
+  margin-right: 50px;
+}
+#to-profile:hover {
+  background-color: white;
+}
+#dropdown-container {
+  position: relative;
+}
+#drop-btn {
+  border: none;
+  cursor: pointer;
+  background-color: inherit;
+}
+.dropdown-content {
+  display: none;
+  min-height: fit-content;
+  left: 0;
+  position: absolute;
+  background-color: rgb(102, 102, 102);
+  min-width: 160px;
+  z-index: 1;
+}
+.dropdown-content li {
+  list-style: none;
+}
+.categ-item:hover {
+  background-color: rgb(40, 40, 40);
+}
+.dropdown-content a {
+  display: block;
+  color: white;
+  padding: 1vw;
+  text-decoration: none;
+}
+.dropdown-content li::before {
+  list-style: none;
+}
+#dropdown-container:hover .dropdown-content {
+  display: block;
+}
+
+@media (max-width: 800px) {
+  .nav-container {
+    flex-direction: row-reverse;
+    height: 6vh;
+  }
+  .hamburger-menu {
+    display: flex;
+  }
+  .collapse-menu {
+    flex-grow: 1;
+    flex-direction: row;
+  }
+  .home-link {
+    flex-grow: 2;
+  }
+  .links {
+    display: none;
+  }
+}

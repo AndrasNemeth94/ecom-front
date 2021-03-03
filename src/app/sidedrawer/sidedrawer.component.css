@@ -1,0 +1,65 @@
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.menu-container {
+  display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100vh;
+  width: 30vh;
+  background-color: gray;
+}
+#drop-btn {
+  outline: none;
+  border: none;
+  padding-left: 3px;
+  font-family: "Javanese Text";
+  font-size: 20px;
+  color: white;
+  background-color: inherit;
+}
+.links {
+  text-decoration: none;
+  padding-left: 20px;
+  font-family: "Javanese Text";
+  font-size: 20px;
+  color: white;
+  background-color: inherit;
+}
+.dropdown-content {
+  position: relative;
+  display: none;
+  width: 100%;
+  background-color: inherit;
+  z-index: 1;
+}
+.dropdown-content li {
+  list-style: none;
+}
+.dropdown-content a {
+  display: block;
+  color: white;
+  padding-left: 20px;
+  text-decoration: none;
+}
+.dropdown-content li::before {
+  list-style: none;
+}
+#dropdown-container:hover .dropdown-content {
+  display: block;
+}
+
+@media (max-width: 800px) {
+  .menu-container {
+    display: flex;
+  }
+}
+
+@media (max-width: 350px) {
+  .menu-container {
+    display: flex;
+    width: 20vh;
+  }
+}

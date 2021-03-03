@@ -1,0 +1,139 @@
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  position: static;
+  width: 100%;
+  min-height: 20vh;
+  padding: 10px;
+  background-color: rgb(102, 102, 102);
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  height: inherit;
+  text-align: center;
+}
+.row {
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  border-top: 0.5px solid white;
+}
+.row-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+  width: 50%;
+  margin: auto;
+  border-top: 0.5px solid white;
+}
+.row-contacts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  height: fit-content;
+  padding: 10px;
+}
+span {
+  color: white;
+  font-family: "Javanese Text";
+  font-size: 25px;
+}
+a {
+  margin-top: 20px;
+  height: 40px;
+  width: 40px;
+  background-color: inherit;
+  background-size: cover;
+}
+a:hover {
+  padding: 10px;
+  height: 60px;
+  width: 60px;
+}
+#face {
+  background-image: url("../../../assets/img/social/face.png");
+}
+#twitter {
+  background-image: url("../../../assets/img/social/twitter.png");
+}
+#insta {
+  background-image: url("../../../assets/img/social/instag.png");
+}
+#icon-mail {
+  margin-left: 0;
+  height: 40px;
+  width: 40px;
+  background-image: url("../../../assets/img/social/mail.png");
+  background-size: cover;
+}
+#icon-phone {
+  margin-left: 0;
+  height: 40px;
+  width: 40px;
+  background-image: url("../../../assets/img/social/phone.png");
+  background-size: cover;
+}
+#icon-map {
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 40px;
+  width: 40px;
+  border-radius: 10%;
+  background-color: rgba(40, 40, 40);
+  border: 2px solid rgba(40, 40, 40);
+  background-image: url("../../../assets/img/social/location.png");
+  background-size: cover;
+}
+p {
+  font-family: "Javanese Text";
+  font-size: 1vw;
+  color: white;
+}
+@media (max-width: 1000px) {
+  .footer-container {
+    flex-direction: column;
+  }
+  span {
+    display: none;
+  }
+  .row {
+    flex-direction: row;
+    justify-content: left;
+    width: 100%;
+    margin: auto;
+    border: none;
+  }
+  .col:nth-of-type(2) {
+    border-top: 0.5px solid white;
+  }
+  .row-contacts {
+    margin: auto;
+    justify-content: left;
+    padding: 3px;
+    width: 80%;
+  }
+  #icon-phone,
+  #icon-map,
+  #icon-mail {
+    width: 30px;
+    height: 30px;
+  }
+  .row-links {
+    border: none;
+    padding-bottom: 10px;
+  }
+  a {
+    margin: auto;
+  }
+  p {
+    font-size: 15px;
+  }
+}

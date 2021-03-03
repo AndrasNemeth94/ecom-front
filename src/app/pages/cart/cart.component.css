@@ -1,0 +1,153 @@
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: max-content;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cart-empty {
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+  height: 100vh;
+  font-size: 50px;
+  font-family: Javanese Text;
+  color: rgb(40, 40, 40);
+}
+.cart-header {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  width: 50%;
+  height: max-content;
+  border-bottom: 5px solid rgb(40, 40, 40);
+}
+.cart-pic {
+  height: 120px;
+  width: 150px;
+  padding: 10px;
+}
+.prod-pic {
+  height: 300px;
+  width: 300px;
+  border-radius: 5%;
+  border: 3px solid black;
+}
+.cart-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: max-content;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  padding: 10px;
+  font-family: Javanese Text;
+  font-size: 25px;
+  border-bottom: 5px solid rgb(40, 40, 40);
+}
+.item-details {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: max-content;
+  padding: none;
+}
+.delete-item {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: max-content;
+  height: max-content;
+  background-color: transparent;
+  border: none;
+}
+.button-can:hover {
+  background: url("../../../assets/img/opened-can.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.button-can {
+  height: 80px;
+  width: 60px;
+  padding: 2px;
+  background: url("../../../assets/img/can.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+h1,
+h3 {
+  margin: auto;
+}
+h2 {
+  margin-left: auto;
+  margin-right: auto;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  flex-grow: 1;
+  font-family: Javanese Text;
+  font-size: 25px;
+  padding: 10px;
+}
+
+form button {
+  width: 100px;
+  margin: auto;
+  margin-top: 20px;
+}
+textarea {
+  font-size: 18px;
+}
+.form-group {
+  padding: 10px;
+}
+small {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 800px) {
+  .cart-pic {
+    height: 60px;
+    width: 75px;
+    padding: 10px;
+  }
+  .prod-pic {
+    height: 150px;
+    width: 150px;
+    border-radius: 5%;
+    border: 2px solid black;
+  }
+  .cart-item {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-size: 15px;
+  }
+  .item-details {
+    height: max-content;
+    align-items: center;
+  }
+  .button-can {
+    height: 40px;
+    width: 30px;
+    padding: 2px;
+  }
+  form {
+    width: 100%;
+    font-size: 18px;
+  }
+  h3 {
+    font-size: 19px;
+  }
+}

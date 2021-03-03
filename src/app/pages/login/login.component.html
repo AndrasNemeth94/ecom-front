@@ -1,0 +1,51 @@
+<div class="form-container">
+  <h1>LogIn</h1>
+
+  <form #userForm="ngForm">
+    <div class="form-group">
+      <label for="email">email</label>
+      <input
+        type="email"
+        class="form-control"
+        [class.is-invalid]="email.invalid && email.touched"
+        pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+        name="email"
+        [(ngModel)]="userModel.email"
+        required
+        #email="ngModel"
+      />
+      <small [class.d-none]="email.untouched || email.valid"
+        >Invalid email!</small
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="password">password</label>
+      <input
+        type="password"
+        class="form-control"
+        [class.is-invalid]="password.invalid && password.touched"
+        pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+        name="password"
+        [(ngModel)]="userModel.password"
+        required
+        #password="ngModel"
+      />
+      <small [class.d-none]="password.untouched || password.valid"
+        >Invalid password!</small
+      >
+      <small [class.d-none]="!showError">
+        {{ ErrorMessage }}
+      </small>
+    </div>
+    <button
+      class="btn btn-secondary"
+      type="submit"
+      (click)="logIn()"
+      [disabled]="!userForm.valid"
+    >
+      Log in
+    </button>
+  </form>
+  <a routerLink="/subscribe">Sign up</a>
+</div>

@@ -1,0 +1,30 @@
+.shadow-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 75vw;
+  background-color: gray;
+  opacity: 0.4;
+}
+@media (max-width: 800px) {
+  .shadow-container {
+    display: flex;
+  }
+}
+@media (max-width: 700px) {
+  .shadow-container {
+    width: 70vw;
+  }
+}
+@media (max-width: 500px) {
+  .shadow-container {
+    width: 55vw;
+  }
+}
+@media (max-width: 350px) {
+  .shadow-container {
+    width: 55vw;
+  }
+}

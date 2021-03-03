@@ -1,0 +1,178 @@
+<div class="cart-container">
+  <div class="cart-header">
+    <img class="cart-pic" src="../../../assets/img/cart.png" />
+  </div>
+  <div class="cart-empty" *ngIf="cartContent.length == 0">
+    <h1>Your cart is empty!</h1>
+    <h3 *ngIf="orderSuccess">Your order has been sent!</h3>
+  </div>
+  <div *ngIf="cartContent.length != 0">
+    <div *ngFor="let i of cartContent">
+      <div class="cart-item">
+        <div *ngIf="i.type == 'shoe'">
+          <img class="prod-pic" src="{{ this.imgShoeUrl + i.imgUrl }}" />
+        </div>
+        <div *ngIf="i.type == 'tshirt'">
+          <img class="prod-pic" src="{{ this.imgShirtUrl + i.imgUrl }}" />
+        </div>
+        <div *ngIf="i.type == 'sweater'">
+          <img class="prod-pic" src="{{ this.imgSweaterUrl + i.imgUrl }}" />
+        </div>
+        <div class="item-details">
+          <p>{{ i.brandName }}</p>
+          <h1>{{ i.name }}</h1>
+          <p>{{ i.color }}</p>
+          <p>size: {{ i.size }}</p>
+          <p>amount: {{ i.amount }}</p>
+          <p>price: {{ i.price }} $</p>
+          <p>total : {{ total }} $</p>
+        </div>
+        <button class="delete-item" (click)="deleteItem(i._id)">
+          <div class="button-can"></div>
+        </button>
+      </div>
+    </div>
+    <!--FORM------------------------------------------------------>
+
+    <form #userDetail="ngForm">
+      <h2>Delivery details:</h2>
+      <div class="form-group">
+        <label for="email">email</label>
+        <input
+          type="email"
+          class="form-control"
+          [class.is-invalid]="email.invalid && email.touched"
+          pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+          name="email"
+          [(ngModel)]="userData.email"
+          required
+          #email="ngModel"
+        />
+        <small [class.d-none]="email.untouched || email.valid"
+          >Invalid email!</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="firstName">firstName</label>
+        <input
+          type="text"
+          class="form-control"
+          [class.is-invalid]="firstName.invalid && firstName.touched"
+          pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$"
+          name="firstName"
+          [(ngModel)]="userData.firstName"
+          required
+          #firstName="ngModel"
+        />
+        <small [class.d-none]="firstName.untouched || firstName.valid"
+          >firstName is too short!</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="lastName">lastName</label>
+        <input
+          type="text"
+          class="form-control"
+          [class.is-invalid]="lastName.invalid && lastName.touched"
+          pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$"
+          name="lastName"
+          [(ngModel)]="userData.lastName"
+          required
+          #lastName="ngModel"
+        />
+        <small [class.d-none]="lastName.untouched || lastName.valid"
+          >lastName is too short!</small
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="address">address</label>
+        <input
+          type="text"
+          class="form-control"
+          [class.is-invalid]="address.invalid && address.touched"
+          name="address"
+          [(ngModel)]="userData.address"
+          required
+          #address="ngModel"
+        />
+        <small
+          >example: building number -street name - city -state- ZIP code</small
+        ><br />
+        <small [class.d-none]="address.untouched || address.valid"
+          >address is too short!</small
+        >
+      </div>
+
+      <p>Payment:</p>
+      <div>
+        <input
+          type="radio"
+          id="cash"
+          name="cash"
+          value="cash"
+          [(ngModel)]="order.payment"
+          required
+          #payment="ngModel"
+        />
+        <label for="cash">Cash</label><br />
+        <input
+          type="radio"
+          id="card"
+          name="card"
+          value="card"
+          [(ngModel)]="order.payment"
+          required
+          #payment="ngModel"
+        />
+        <label for="card">Card</label><br />
+      </div>
+
+      <p>Delivery:</p>
+      <div>
+        <input
+          type="radio"
+          id="home_delivery"
+          name="home_delivery"
+          (change)="calculateTotalPrice()"
+          value="home_delivery"
+          [(ngModel)]="order.deliveryType"
+          required
+          #deliveryType="ngModel"
+        />
+        <label for="home_delivery">Home delivery</label><br />
+        <input
+          type="radio"
+          id="personal_purchase"
+          name="personal_purchase"
+          (change)="decreaseTotalPrice()"
+          value="personal_purchase"
+          [(ngModel)]="order.deliveryType"
+          required
+          #deliveryType="ngModel"
+        />
+        <label for="personal_purchase">Personal purchase</label><br />
+      </div>
+
+      <label for="note">note:</label>
+      <textarea
+        id="note"
+        name="note"
+        rows="4"
+        cols="50"
+        [(ngModel)]="order.note"
+        #note="ngModel"
+      >
+      </textarea>
+
+      <button
+        class="btn btn-secondary"
+        type="submit"
+        [disabled]="!userDetail.valid || this.cartEmpty"
+        (click)="sendOrder()"
+      >
+        Order
+      </button>
+    </form>
+  </div>
+</div>

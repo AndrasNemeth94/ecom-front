@@ -1,0 +1,101 @@
+<div class="subscribe-container">
+  <form #signUpForm="ngForm">
+    <h1>Sign up</h1>
+    <div class="form-group">
+      <label for="email">email</label>
+      <input
+        type="email"
+        class="form-control"
+        [class.is-invalid]="email.invalid && email.touched"
+        pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+        name="email"
+        [(ngModel)]="signUp.email"
+        required
+        #email="ngModel"
+      />
+      <small [class.d-none]="email.untouched || email.valid"
+        >Invalid email!</small
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="password">password</label>
+      <input
+        type="password"
+        class="form-control"
+        [class.is-invalid]="password.invalid && password.touched"
+        pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+        name="password"
+        [(ngModel)]="signUp.password"
+        required
+        #password="ngModel"
+      />
+      <small [class.d-none]="password.untouched || password.valid"
+        >password has to be at least 8 character with numbers and
+        letters!</small
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="firstName">firstName</label>
+      <input
+        type="text"
+        class="form-control"
+        [class.is-invalid]="firstName.invalid && firstName.touched"
+        pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$"
+        name="firstName"
+        [(ngModel)]="signUp.firstName"
+        required
+        #firstName="ngModel"
+      />
+      <small [class.d-none]="firstName.untouched || firstName.valid"
+        >firstName is too short!</small
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">lastName</label>
+      <input
+        type="text"
+        class="form-control"
+        [class.is-invalid]="lastName.invalid && lastName.touched"
+        pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$"
+        name="lastName"
+        [(ngModel)]="signUp.lastName"
+        required
+        #lastName="ngModel"
+      />
+      <small [class.d-none]="lastName.untouched || lastName.valid"
+        >lastName is too short!</small
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="address">address</label>
+      <input
+        type="text"
+        class="form-control"
+        [class.is-invalid]="address.invalid && address.touched"
+        name="address"
+        [(ngModel)]="signUp.address"
+        required
+        #address="ngModel"
+      />
+      <small
+        >example: building number -street name - city -state- ZIP code</small
+      ><br />
+      <small [class.d-none]="address.untouched || address.valid"
+        >address is too short!</small
+      >
+    </div>
+
+    <button
+      class="btn btn-secondary"
+      type="submit"
+      [disabled]="!signUpForm.valid"
+      (click)="sendSignUp()"
+    >
+      Send
+    </button>
+  </form>
+</div>
